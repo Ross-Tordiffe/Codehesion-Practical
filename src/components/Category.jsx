@@ -1,9 +1,8 @@
-export default function Category() {
+export default function Category({category}) {
     return (
         <>
-            <div className="category">
-                <div className="category-name">Category Name</div>
-                <div className="category-description">Category Description</div>
+            <div className="category" id={category.id}>
+                <div className="category-name">{category.name}</div>
             </div>
         </>
     )

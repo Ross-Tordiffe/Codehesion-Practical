@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import qs from 'qs'
 
 export default function LoginPage() {
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if(token) {
+            navigate('/home');
+        }
+    }, [])
 
-    
+    const navigate = useNavigate();
+
 
     const handleEmailChange = (e) => {
         if (e.target.value !== '') {
-            setUsername(e.target.value)
+            setUsername(e.target.value);
         }
     }
 
     const handlePasswordChange = (e) => {
         if (e.target.value !== '') {
-            setPassword(e.target.value)
+            setPassword(e.target.value);
         }
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
-        console.log('username', username)
-        console.log('password', password)
 
         const data = {
             grant_type: 'password',
@@ -42,18 +47,21 @@ export default function LoginPage() {
             
             const response = await axios.post('https://edeaf-api-staging.azurewebsites.net/connect/token', qs.stringify(data), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
 
-            if(response === 200) {
-                const data = await response.json();
-                localStorage.setItem('token', data.access_token)
+            console.log('response', response)
+            if(response.status === 200) {
+                const token = response.data.access_token
+                localStorage.setItem('token', token)
+                navigate('/home');
             }
 
         } catch (error) {
-            setError(error.message)
+            setError(error.message);
     
             if(error.response.status === 400) {
                 setError('Invalid username or password')
             }
         }
+
     }
     
     return (
