@@ -54,9 +54,11 @@ const InvitePage = () => {
     return (
         <>
             { success ? (
-                <div className="invite-success">
-                    <h1>Invite sent to {email}</h1>
-                    <button className="invite-continue"><Link to={'/'}>Continue</Link></button>
+                <div className="invite-success form">
+                    <form>
+                        <h1>Invite sent to {email}</h1>
+                        <Link className="invite-continue form-button" to={'/'}>Continue</Link>
+                    </form>
                 </div>
             ) : (
             <div className="form invite-form">
