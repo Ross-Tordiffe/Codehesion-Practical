@@ -139,6 +139,10 @@ a {
     align-items: center;
 }
 
+.header-button.active {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
 
 /* === Categories === */
 

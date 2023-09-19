@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect} from 'react';
 import useAuth from "../Hooks/useAuth.jsx";
 import axios from '../api/axois';
 import qs from 'qs';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     
@@ -86,7 +86,6 @@ const LoginPage = () => {
     }
     
     const getCurrentUser = async (token) => {
-        
         try {
             const response = await axios.get('/v1/admin/Users/current', {headers: {Authorization: `Bearer ${token}`}})
             if (response.status === 200) {
@@ -96,8 +95,6 @@ const LoginPage = () => {
             return null;
         }
     }
-            
-    
     
     return (
             <div className="form login-form">

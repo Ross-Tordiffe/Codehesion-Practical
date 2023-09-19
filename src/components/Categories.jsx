@@ -14,11 +14,8 @@ export default function Categories() {
     }, [categories]);
    
     const getCategories = async () => {
-        
         try {
             const response = await axios.get('/v1/admin/categories', {headers: {Authorization: `Bearer ${auth?.token}`}});
-            console.log('response', response);
-            
             if (response.status === 200) {
                 const categories = response.data.data;
                 setCategories(categories);
@@ -26,10 +23,8 @@ export default function Categories() {
             }
             
             // fetch failed
-            console.log('response', response, auth?.token)
             setError("Error in getCategories: fetch failed");
             return [];
-            
         } catch (error) {
             console.log('Error in getCategories: ', error)
             return [];
@@ -37,7 +32,7 @@ export default function Categories() {
     }
 
     useEffect(() => {
-        const categories = getCategories();
+        getCategories();
     }, []);
     
     return (

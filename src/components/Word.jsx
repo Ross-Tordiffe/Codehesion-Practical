@@ -23,20 +23,14 @@ export default function Word() {
     }, [word]);
 
     const getWord = async () => {
-
         try {
             const response = await axios.get(`/v1/admin/Words/all`, {headers: {Authorization: `Bearer ${auth?.token}`}});
-
             if (response.status === 200) {
-                // sort words for those that have the category id in their category array
-                console.log('Words response', response.data.data[0].id)
-                
                 const wordName = response.data.data.find(thisWord => thisWord.id === wordId)
-                console.log('word: ', wordName.name)
                 setWord(wordName);
                 return wordName;
             } else {
-                console.log('Words response', response)
+                console.log('Error in getWords: ', response)
                 return {};
             }
         } catch (error) {
@@ -49,19 +43,14 @@ export default function Word() {
         console.log('getVideo', word?.id)
            axios.get(`/v1/Words/${word?.id}/video`, {headers: {Authorization: `Bearer ${auth?.token}`}, responseType: 'blob'}).then(
             response => {
- 
                 setVideoReceived(true);
                 setVideo(URL.createObjectURL(response.data));
                 return response;
-                
             }). catch(error => {
                 console.log('Error in getVideo: ', error)
                 return null;
             })
-        
     }
-    
-        
     
     return (
         <>

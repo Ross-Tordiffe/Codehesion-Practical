@@ -1,5 +1,5 @@
-import HomePage from './pages/HomePage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
+import HomePage from './components/HomePage.jsx';
+import LoginPage from './components/LoginPage.jsx';
 import InvitePage from './components/InvitePage.jsx';
 import Layout from "./components/Layout.jsx";
 import { Route, Routes } from 'react-router-dom';
@@ -21,6 +21,5 @@ export default function App() {
                 
             </Route>
         </Routes>
-
     );
 }

@@ -1,4 +1,4 @@
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, NavLink } from 'react-router-dom'
 import useAuth from "../hooks/useAuth.jsx";
 import { useState, useEffect } from 'react';
 
@@ -22,7 +22,7 @@ export default function Header(username) {
         <div className="header home-header">
             <div className="headerbox">
                 <div className="header-left">
-                    <Link className="header-button header-home" to="/">Home</Link>
+                    <NavLink className="header-button header-home" to="" activeClassName="link-active" end>Home</NavLink>
                     <h1 className="header-welcome">Welcome back, {username.username}</h1>
                 </div>
                 <div className="header-right">

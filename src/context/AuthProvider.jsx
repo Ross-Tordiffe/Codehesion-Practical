@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
     
     useEffect(() => {
         if(auth?.token) {
-            // 10 minute timeout
             console.log('setting auth timeout')
             localStorage.setItem('auth', JSON.stringify(auth))
             localStorage.setItem('auth-timeout', JSON.stringify(Date.now() + 600000));

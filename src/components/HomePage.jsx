@@ -1,14 +1,12 @@
 import Header from '../components/Header'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import useAuth from "../hooks/useAuth.jsx";
 import Categories from "../components/Categories.jsx";
 import Category from "../components/Category.jsx";
 import Word from "../components/Word.jsx";
-export default function Home({token}, {user}) {
-    
-    const [categories, setCategories] = useState([]);
-    
+export default function Home() {
+
     const navigate = useNavigate();
     const { auth } = useAuth();
 
@@ -25,7 +23,7 @@ export default function Home({token}, {user}) {
             <Routes>
                 <Route path="category/:id/:word" element={<Word />} />
                 <Route path="category/:id" element={<Category />} />
-                <Route path="*" element={<Categories categories={categories} />} />
+                <Route path="*" element={<Categories />} />
             </Routes>
         </div>
     )
