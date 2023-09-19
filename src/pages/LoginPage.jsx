@@ -104,11 +104,15 @@ const LoginPage = () => {
                 <h1>Login</h1>
                 <p ref={errorRef} className={error ? 'error' : 'hidden'}>{error}</p>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email</label>
-                    <input className="input" type="text" ref={userRef} onChange={(e) => setEmail(e.target.value)} value={email} required />
-                    <label htmlFor="password">Password</label>
-                    <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
-                    <button className="button" type="submit">Login</button>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input className="input" type="text" ref={userRef} onChange={(e) => setEmail(e.target.value)} value={email} required />
+                    </div>    
+                    <div className="input-group">
+                        <label htmlFor="password">Password</label>
+                        <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
+                    </div>
+                        <button className="button form-button" type="submit">Login</button>
                 </form>
             </div>
     )

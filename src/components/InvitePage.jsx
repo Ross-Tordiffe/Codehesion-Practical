@@ -21,6 +21,10 @@ const InvitePage = () => {
     useEffect(() => {
         setError('');
     }, [firstName, lastName, email])
+    
+    useEffect(() => {
+        console.log(auth.token)
+    }, [])
 
 
     // --- Unsure about getting user password ---
@@ -130,14 +134,23 @@ const InvitePage = () => {
             <div className="form invite-form">
                 <h1>Invite a friend</h1>
                 <p ref={errorRef} className={error ? 'invite-error' : 'hidden'}>{error}</p>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="firstName">First Name</label>
-                    <input className="input" type="text" ref={userRef} onChange={(e) => setFirstName(e.target.value)} value={firstName} required />
-                    <label htmlFor="lastName">Last Name</label>
-                    <input className="input" type="text" onChange={(e) => setLastName(e.target.value)} value={lastName} required />
-                    <label htmlFor="email">Email</label>
-                    <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} value={email} required />
-                    <button className="button" type="submit">Send Invite</button>
+                <form>
+                    <div className="input-group">
+                        <label htmlFor="firstName">First Name</label>
+                        <input className="input" type="text" ref={userRef} onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+                    </div>  
+                    <div className="input-group">
+                        <label htmlFor="lastName">Last Name</label>
+                        <input className="input" type="text" onChange={(e) => setLastName(e.target.value)} value={lastName} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    </div>
+                    <div className="button-group">
+                        <button className="button form-button button-cancel" onClick={() => navigate(-1)}>Cancel</button>
+                        <button className="button form-button" type="submit" onClick={handleSubmit}>Send Invite</button>
+                    </div>
                 </form>
             </div> )
             }

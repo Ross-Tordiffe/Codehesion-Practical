@@ -71,22 +71,28 @@ export default function Category() {
             return [];
         }
     }
-                
-     
-        
-
+    
     return (
-        <div className="category" id={id}>
-            <p ref={errorRef} className={error ? 'category-error' : 'hidden'}>{error}</p>
-            <div className="category-name">{category.name}</div>
-            <div className="category-words">
-                {words.map((word) => (
-                    <div className="category-word" key={word.id} id={"id" + word.id}>
-                        <div className="category-word-name" style={{fontSize: Math.floor(Math.random() * 20) + 16}}>{word.name}</div>
-                        <div className="category-word-description">{word.description}</div>
-                    </div>
-                ))}
+        <>
+            <div className="category-header">
+                <div className="category-back" onClick={() => navigate(-1)}>&lt;</div>
+                <h1 className="category-name">{category.name}</h1>
             </div>
-        </div>
+            
+            <div className="category" id={id}>
+                <p ref={errorRef} className={error ? 'category-error' : 'hidden'}>{error}</p>
+              
+                <div className="category-words words">
+                    {words.length > 0 && words.map((word) => (
+                        <div className="category-word" key={word.id} id={"id" + word.id}>
+                            <div className="category-word-name">{word.name}</div>
+                            <div className="category-word-description">{word.description}</div>
+                        </div>
+                    ))}
+
+                    {words.length === 0 && <div className="category-word">There are no words in this category</div>}
+                </div>
+            </div>
+        </>
     )
 }

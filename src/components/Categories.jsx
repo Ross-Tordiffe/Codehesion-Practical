@@ -38,15 +38,19 @@ export default function Categories() {
 
     useEffect(() => {
         const categories = getCategories();
-        
     }, []);
     
     return (
-        <div className="categories">
-            <p ref={errorRef} className={error ? 'categories-error' : 'hidden'}>{error}</p>
-            {categories.map((category) => (
-                <CategoryCard key={category.id} category={category} />
-            ))}
-        </div>
+        <>
+            <div className="category-header">
+                <h1>Categories</h1>
+            </div>
+            <div className="categories">
+                <p ref={errorRef} className={error ? 'categories-error' : 'hidden'}>{error}</p>
+                {categories.map((category) => (
+                    <CategoryCard key={category.id} category={category} />
+                ))}
+            </div>
+        </>
     )
 }

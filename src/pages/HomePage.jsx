@@ -4,6 +4,8 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import useAuth from "../hooks/useAuth.jsx";
 import Categories from "../components/Categories.jsx";
 import Category from "../components/Category.jsx";
+import ProfilePage from "../components/ProfilePage.jsx";
+import CreatePage from "../components/CreatePage.jsx";
 export default function Home({token}, {user}) {
     
     const [categories, setCategories] = useState([]);
@@ -24,6 +26,8 @@ export default function Home({token}, {user}) {
             <Routes>
                 <Route path="category/:id" element={<Category />} />
                 <Route path="*" element={<Categories categories={categories} />} />
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="create" element={<CreatePage />} />
             </Routes>
         </div>
     )
