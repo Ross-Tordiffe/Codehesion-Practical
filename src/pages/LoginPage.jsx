@@ -1,15 +1,16 @@
-import React, { useRef, useState, useEffect} from 'react'
+import React, { useRef, useState, useEffect} from 'react';
 import useAuth from "../Hooks/useAuth.jsx";
+import axios from '../api/axois';
 import qs from 'qs';
-import axios from '../api/axois'
-
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom';
 
 const LoginPage = () => {
     
     const { setAuth } = useAuth();
     const userRef = useRef();
     const errorRef = useRef();
+    
+    const { auth } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,6 +18,13 @@ const LoginPage = () => {
     const [success, setSuccess] = useState(false);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(auth?.token) {
+            console.log('Auth token found. Redirecting to home.')
+            // navigate('/login');
+        }
+    }, [auth, navigate]);
 
     useEffect(() => {
         userRef.current.focus();
@@ -32,7 +40,7 @@ const LoginPage = () => {
         }
     }, [success, navigate])
         
-
+    
 
 
     const handleSubmit = async (event) => {
@@ -102,9 +110,6 @@ const LoginPage = () => {
                     <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
                     <button className="button" type="submit">Login</button>
                 </form>
-                <div className="form-footer">
-                    <p>Don't have an account? <a href="/register">Register</a></p>
-                </div>
             </div>
     )
 }

@@ -2,7 +2,6 @@ import CategoryCard from "./CategoryCard";
 import React, { useRef, useState, useEffect} from 'react'
 import axios from '../api/axois'
 import useAuth from "../Hooks/useAuth.jsx";
-import {Await} from "react-router-dom";
 export default function Categories() {
 
     const errorRef = useRef();
@@ -13,7 +12,6 @@ export default function Categories() {
     useEffect(() => {
         setError('');
     }, [categories]);
-    
    
     const getCategories = async () => {
         

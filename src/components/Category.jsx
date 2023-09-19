@@ -82,7 +82,7 @@ export default function Category() {
             <div className="category-words">
                 {words.map((word) => (
                     <div className="category-word" key={word.id} id={"id" + word.id}>
-                        <div className="category-word-name" style={{fontSize: Math.floor(Math.random() * 20) + 16, color: `rgb(${Math.floor(Math.random() * 50)}, ${Math.floor(Math.random() * 50)}, ${Math.floor(Math.random() * 180)})`}}>{word.name}</div>
+                        <div className="category-word-name" style={{fontSize: Math.floor(Math.random() * 20) + 16}}>{word.name}</div>
                         <div className="category-word-description">{word.description}</div>
                     </div>
                 ))}

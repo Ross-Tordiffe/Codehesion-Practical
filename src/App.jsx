@@ -1,10 +1,9 @@
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
+import InvitePage from './components/InvitePage.jsx';
 import Layout from "./components/Layout.jsx";
 import { Route, Routes } from 'react-router-dom';
 import RequireAuth from "./components/RequireAuth.jsx";
-import Category from "./components/CategoryCard.jsx";
-import Categories from "./components/Categories.jsx";
 export default function App() {
     
     return (
@@ -12,13 +11,14 @@ export default function App() {
             <Route path="*" element={<Layout />}>
                 {/* public */}
                 <Route path="login" element={<LoginPage />} />
-                {/*<Route path="register" element={<RegisterPage />} />*/}
+                
                 
                 {/* logged in only */}
                 <Route element={<RequireAuth />}>
                     <Route path="*" element={<HomePage />} />
+                    <Route path="invite" element={<InvitePage />} />
                     {/*<Route path="profile" element={<ProfilePage />} />*/}
-                    {/*<Route path="admin" element={<EditPage />} />*/}
+                    {/*<Route path="edit" element={<EditPage />} />*/}
                 </Route>
                 
                 {/* catch all */}
@@ -29,6 +29,3 @@ export default function App() {
 
     );
 }
-
-// Auth token
-// eyJhbGciOiJSUzI1NiIsImtpZCI6IjRDRDlGNDg5RDEwOTg4QjA5NDk3RjVBM0Y0OTc4M0Q4MUFEMkI2MDBSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IlRObjBpZEVKaUxDVWxfV2o5SmVEMkJyU3RnQSJ9

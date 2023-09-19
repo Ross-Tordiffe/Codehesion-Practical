@@ -13,6 +13,7 @@ export default function Home({token}, {user}) {
 
     useEffect(() => {
         if(!auth?.token) {
+            console.log('Auth token not found. Redirecting to login.')
             navigate('/login');
         }
     }, [auth, navigate]);
