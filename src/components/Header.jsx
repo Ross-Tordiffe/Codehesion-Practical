@@ -18,16 +18,17 @@ export default function Header(username) {
         setIsLoggedIn(false);
     }
     
-
     return(
         <div className="header home-header">
-            <h1 className="header-welcome">Welcome back, {username.username}</h1>
-            <div className="header-buttons">
-                <Link className="header-button header-home" to="/">Home</Link>
-                <Link className="header-button header-create" to="/create">Create</Link>
-                <Link className="header-button header-profile" to="/profile">Profile</Link>
-                <Link className="header-button header-invite" to="/invite">Invite</Link>
-                <button className="header-button header-logout" onClick={logout}>Logout</button>
+            <div className="headerbox">
+                <div className="header-left">
+                    <Link className="header-button header-home" to="/">Home</Link>
+                    <h1 className="header-welcome">Welcome back, {username.username}</h1>
+                </div>
+                <div className="header-right">
+                    <Link className="header-button header-invite" to="/invite">Invite</Link>
+                    <button className="header-button header-logout" onClick={logout}>Logout</button>
+                </div>
             </div>
         </div>
     )

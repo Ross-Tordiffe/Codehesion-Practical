@@ -54,6 +54,8 @@ body {
 a {
     text-decoration: none;
     color: var(--text-secondary);
+    font-size: 0.4em;
+    
 }
 
 
@@ -62,10 +64,13 @@ a {
 .home-header {
     font-family: Helvetica;
     font-size: 1.5rem;
-    margin: 1rem;
     padding: 1rem;
+}
+
+.headerbox {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
+    padding: 1rem;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -73,15 +78,9 @@ a {
 
 .header-welcome {
     font-size: 2rem;
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
-.header-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 2rem;
-}
 
 .header-button header-link, .header-button {
     font-size: 0.8em;
@@ -117,11 +116,29 @@ a {
 .header-logout {
     color: var(--text-lighter);
     border-color: var(--text-lighter);
+    padding: 0.6em;
+    font-family: Helvetica;
 }
 
 .header-logout:hover {
     color: var(--text-secondary);
 }
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .header-welcome {
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 /* === Categories === */
 
@@ -131,7 +148,10 @@ a {
     color: var(--text-primary);
     border-radius: 15px;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    justify-content: flex-end;
+    min-height: 90px;
 }
 
 .category-back {
@@ -144,7 +164,11 @@ a {
     transition: all 0.1s ease-in-out;
 }
 
-.category-back:hover {
+.category-name:hover {
+    cursor: pointer;
+}
+
+.category-back:hover, .category-name:hover + .category-back {
     opacity: 0.9;
     transform: translate(-3px, 0px);
     cursor: pointer;
@@ -186,7 +210,6 @@ a {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     border-radius: 15px;
-    
 } 
 
 .category-words {
@@ -248,7 +271,7 @@ form {
     border-radius: 5px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
     transition: all 0.1s ease-in-out;
-    min-width: 100px;
+    min-width: 130px;
 }
 
 .form-button:hover {
@@ -324,6 +347,15 @@ form {
     font-family: Helvetica;
     margin: 0.5em;
     padding: 0.5em;
+    border-radius: 5px;
+    border: 2px solid var(--text-secondary);
+    transition: 50ms ease-in;
+}
+
+.word:hover {   
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    transform: translate(-1px, -1px);
 }
 
 .words {
@@ -333,4 +365,32 @@ form {
     text-align: center;
     padding: 1em 0em;
     border-radius: 15px;
+}
+
+/* === Words Page === */
+
+.word-videobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    min-height: 50vh;
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+   
+}
+
+.word-video {
+    border-radius: 15px;
+}
+
+.word-video video
+{
+    max-height: 40vh;
+    border-radius: 15px;
+    border: 2px solid var(--text-secondary);
 }

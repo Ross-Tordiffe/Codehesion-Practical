@@ -51,9 +51,6 @@ export default function CreatePage() {
             return [];
         }
     }
-    
-    // const addWord = async (word) => {
-    //     try {
 
     useEffect(() => {
         const categories = getCategories();

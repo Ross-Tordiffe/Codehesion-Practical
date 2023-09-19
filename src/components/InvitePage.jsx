@@ -148,7 +148,7 @@ const InvitePage = () => {
                         <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
                     <div className="button-group">
-                        <button className="button form-button button-cancel" onClick={() => navigate(-1)}>Cancel</button>
+                        <button className="button form-button button-cancel" onClick={() => navigate('/')}>Cancel</button>
                         <button className="button form-button" type="submit" onClick={handleSubmit}>Send Invite</button>
                     </div>
                 </form>

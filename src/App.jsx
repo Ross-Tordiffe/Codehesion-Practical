@@ -1,8 +1,6 @@
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import InvitePage from './components/InvitePage.jsx';
-import ProfilePage from './components/ProfilePage.jsx';
-import CreatePage from './components/CreatePage.jsx';
 import Layout from "./components/Layout.jsx";
 import { Route, Routes } from 'react-router-dom';
 import RequireAuth from "./components/RequireAuth.jsx";

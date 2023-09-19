@@ -74,23 +74,24 @@ export default function Category() {
     
     return (
         <>
-            <div className="category-header">
-                <div className="category-back" onClick={() => navigate(-1)}>&lt;</div>
+            <div className="category-header" onClick={() => navigate(-1)}>
                 <h1 className="category-name">{category.name}</h1>
+                <div className="category-back" >&lt;</div>
             </div>
+        
             
             <div className="category" id={id}>
                 <p ref={errorRef} className={error ? 'category-error' : 'hidden'}>{error}</p>
               
                 <div className="category-words words">
                     {words.length > 0 && words.map((word) => (
-                        <div className="category-word" key={word.id} id={"id" + word.id}>
+                        <div className="category-word word" key={word.id} id={"id" + word.id} onClick={() => navigate(`/category/${category.id}/${word.id}`)}>
                             <div className="category-word-name">{word.name}</div>
                             <div className="category-word-description">{word.description}</div>
                         </div>
                     ))}
 
-                    {words.length === 0 && <div className="category-word">There are no words in this category</div>}
+                    {words.length === 0 && <div className="category-word">There are no words in this category :(</div>}
                 </div>
             </div>
         </>
