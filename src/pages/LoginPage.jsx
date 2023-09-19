@@ -94,7 +94,7 @@ const LoginPage = () => {
     return (
             <div className="form login-form">
                 <h1>Login</h1>
-                <p ref={errorRef} className="error ? 'error' : 'hidden'">{error}</p>
+                <p ref={errorRef} className={error ? 'error' : 'hidden'}>{error}</p>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
                     <input className="input" type="text" ref={userRef} onChange={(e) => setEmail(e.target.value)} value={email} required />

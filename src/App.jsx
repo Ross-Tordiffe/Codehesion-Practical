@@ -3,19 +3,20 @@ import LoginPage from './pages/LoginPage.jsx';
 import Layout from "./components/Layout.jsx";
 import { Route, Routes } from 'react-router-dom';
 import RequireAuth from "./components/RequireAuth.jsx";
-import {useEffect, useState} from "react";
+import Category from "./components/CategoryCard.jsx";
+import Categories from "./components/Categories.jsx";
 export default function App() {
     
     return (
         <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="*" element={<Layout />}>
                 {/* public */}
                 <Route path="login" element={<LoginPage />} />
                 {/*<Route path="register" element={<RegisterPage />} />*/}
                 
                 {/* logged in only */}
                 <Route element={<RequireAuth />}>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="*" element={<HomePage />} />
                     {/*<Route path="profile" element={<ProfilePage />} />*/}
                     {/*<Route path="admin" element={<EditPage />} />*/}
                 </Route>

@@ -23,9 +23,6 @@ export default function Header(username) {
             <div className="header-welcome">Welcome, {username.username}</div>
             <button className="header-logout" onClick={logout}>Logout</button>
             <button className="header-invite" onClick={() => navigate('/invite')}>Invite</button>
-            <div className="header-request-testing">
-                <button className="get-user">Get User</button>
-            </div>
         </div>
     )
 }
